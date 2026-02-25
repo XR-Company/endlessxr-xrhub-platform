@@ -26,10 +26,82 @@ const problems = [
   },
 ];
 
+const ProblemCard = ({
+  problem,
+  isInView,
+  delay,
+}: {
+  problem: (typeof problems)[0];
+  isInView: boolean;
+  delay: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.5, delay }}
+    className="border border-border rounded-lg p-8 text-center h-full"
+  >
+    <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
+      <problem.icon className="w-6 h-6 text-muted-foreground" />
+    </div>
+    <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
+    <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
+  </motion.div>
+);
+
+const ImageTile = ({ src, alt }: { src: string; alt: string }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.95 }}
+    transition={{ duration: 0.3 }}
+    className="rounded-lg overflow-hidden h-full"
+  >
+    <img src={src} alt={alt} className="w-full h-full object-cover rounded-lg" />
+  </motion.div>
+);
+
 const ProblemSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const renderCell = (index: number) => {
+    const problem = problems[index];
+
+    if (hoveredIndex === null) {
+      // No hover — show all cards normally
+      return (
+        <div
+          key={problem.title}
+          className="cursor-pointer"
+          onMouseEnter={() => setHoveredIndex(index)}
+        >
+          <ProblemCard problem={problem} isInView={isInView} delay={0.1 + index * 0.1} />
+        </div>
+      );
+    }
+
+    if (hoveredIndex === index) {
+      // This is the hovered card — keep showing it
+      return (
+        <div
+          key={problem.title + "-active"}
+          className="cursor-pointer"
+          onMouseEnter={() => setHoveredIndex(index)}
+        >
+          <ProblemCard problem={problem} isInView={isInView} delay={0} />
+        </div>
+      );
+    }
+
+    // Not hovered — replace with image
+    return (
+      <AnimatePresence mode="wait" key={problem.title + "-img"}>
+        <ImageTile src={problem.image} alt={problem.title} />
+      </AnimatePresence>
+    );
+  };
 
   return (
     <section className="py-32" ref={ref}>
@@ -50,75 +122,11 @@ const ProblemSection = () => {
           </h2>
         </motion.div>
 
-        <div className="relative mb-16 min-h-[220px]">
-          {/* Default grid view */}
-          <AnimatePresence>
-            {hoveredIndex === null && (
-              <motion.div
-                className="grid md:grid-cols-3 gap-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {problems.map((problem, i) => (
-                  <motion.div
-                    key={problem.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-                    className="border border-border rounded-lg p-8 text-center cursor-pointer transition-all duration-300 hover:border-foreground/40"
-                    onMouseEnter={() => setHoveredIndex(i)}
-                  >
-                    <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
-                      <problem.icon className="w-6 h-6 text-muted-foreground" />
-                    </div>
-                    <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Expanded hover view */}
-          <AnimatePresence>
-            {hoveredIndex !== null && (
-              <motion.div
-                key={hoveredIndex}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-0 z-10"
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div className="border border-foreground/30 rounded-lg p-8 grid md:grid-cols-2 gap-8 items-center h-full bg-background">
-                  <div className="flex flex-col justify-center">
-                    <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mb-6">
-                      {(() => {
-                        const Icon = problems[hoveredIndex].icon;
-                        return <Icon className="w-6 h-6 text-foreground" />;
-                      })()}
-                    </div>
-                    <h3 className="font-display text-2xl md:text-3xl font-semibold mb-4">
-                      {problems[hoveredIndex].title}
-                    </h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      {problems[hoveredIndex].description}
-                    </p>
-                  </div>
-                  <div className="rounded-lg overflow-hidden">
-                    <img
-                      src={problems[hoveredIndex].image}
-                      alt={problems[hoveredIndex].title}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div
+          className="grid md:grid-cols-3 gap-6 mb-16"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {[0, 1, 2].map((i) => renderCell(i))}
         </div>
 
         <motion.p
@@ -127,7 +135,10 @@ const ProblemSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-xl md:text-2xl text-muted-foreground font-display"
         >
-          The result? <span className="text-foreground font-semibold">XR remains niche — not yet mainstream.</span>
+          The result?{" "}
+          <span className="text-foreground font-semibold">
+            XR remains niche — not yet mainstream.
+          </span>
         </motion.p>
       </div>
     </section>
