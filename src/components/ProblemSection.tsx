@@ -33,8 +33,8 @@ const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 border border-border rounded-full px-4 py-1.5 mb-6">
-            <span className="text-sm text-muted-foreground">Current Problem</span>
+          <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-6">
+            <span className="text-sm text-foreground">Current Problem</span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             The XR content gap is
