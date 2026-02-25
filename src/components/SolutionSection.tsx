@@ -65,6 +65,16 @@ const SolutionSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={isInView ? { scaleY: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex justify-center mt-16"
+          style={{ originY: 0 }}
+        >
+          <div className="w-px h-24 bg-gradient-to-b from-foreground/30 to-transparent" />
+        </motion.div>
       </div>
     </section>
   );
