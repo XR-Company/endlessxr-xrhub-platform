@@ -6,29 +6,26 @@ const SolutionSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 relative" ref={ref}>
-      {/* Accent glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[150px]" />
-
-      <div className="section-container relative z-10">
+    <section className="py-32" ref={ref}>
+      <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="inline-block glass-card px-5 py-2 mb-8">
-            <span className="text-sm font-medium gradient-text">Our Solution</span>
+          <div className="inline-block border border-border rounded-full px-5 py-1.5 mb-8">
+            <span className="text-sm font-medium text-muted-foreground">Our Solution</span>
           </div>
 
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
             The platform built to close
             <br />
-            <span className="gradient-text-cyan">the XR content gap.</span>
+            the XR content gap.
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            We bring creation, editing, publishing, and discovery into one seamless 
+            We bring creation, editing, publishing, and discovery into one seamless
             headset-native ecosystem — so immersive content can scale as fast as XR hardware.
           </p>
         </motion.div>
