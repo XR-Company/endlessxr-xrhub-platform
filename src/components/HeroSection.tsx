@@ -81,6 +81,22 @@ const HeroSection = () => {
             <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 flex flex-col items-center gap-2"
+        >
+          <div className="w-6 h-10 rounded-full border-2 border-foreground/30 flex items-start justify-center p-1.5">
+            <motion.div
+              className="w-1.5 h-1.5 rounded-full bg-foreground/60"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
       </div>
 
       <SubscribeModal open={modalOpen} onClose={() => setModalOpen(false)} />
