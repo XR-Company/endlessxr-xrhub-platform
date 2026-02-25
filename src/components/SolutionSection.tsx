@@ -73,7 +73,7 @@ const SolutionSection = () => {
           className="flex justify-center mt-16"
           style={{ originY: 0 }}
         >
-          <div className="w-px h-60 bg-gradient-to-b from-foreground/30 to-transparent" />
+          <div className="w-px h-80 bg-gradient-to-b from-foreground/30 to-transparent" />
         </motion.div>
       </div>
     </section>
