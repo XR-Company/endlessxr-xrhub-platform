@@ -6,33 +6,33 @@ import featureEditor from "@/assets/feature-editor.jpg";
 import featureAi from "@/assets/feature-ai.jpg";
 
 const features = [
-  {
-    title: "Various Content Types",
-    description:
-      "Support for Multi-2D, 360° Immersive, and Hybrid 2D+3D formats. Mix multiple media types into one experience.",
-    image: featureContentTypes,
-  },
-  {
-    title: "Instant Discovery",
-    description:
-      "Short-form XR content feed removes friction. Discover instantly and give feedback to creators in real-time.",
-    image: featureDiscovery,
-  },
-  {
-    title: "Headset-Native Editor",
-    description:
-      "Build directly in the headset with a unified spatial timeline. No complex desktop workflows required.",
-    image: featureEditor,
-  },
-  {
-    title: "AI-Generation Tools",
-    description:
-      "Generate 3D models and 360° videos from text and images. Professional results with zero modeling expertise.",
-    image: featureAi,
-  },
-];
+{
+  title: "Various Content Types",
+  description:
+  "Support for Multi-2D, 360° Immersive, and Hybrid 2D+3D formats. Mix multiple media types into one experience.",
+  image: featureContentTypes
+},
+{
+  title: "Instant Discovery",
+  description:
+  "Short-form XR content feed removes friction. Discover instantly and give feedback to creators in real-time.",
+  image: featureDiscovery
+},
+{
+  title: "Headset-Native Editor",
+  description:
+  "Build directly in the headset with a unified spatial timeline. No complex desktop workflows required.",
+  image: featureEditor
+},
+{
+  title: "AI-Generation Tools",
+  description:
+  "Generate 3D models and 360° videos from text and images. Professional results with zero modeling expertise.",
+  image: featureAi
+}];
 
-const FeatureItem = ({ feature, index }: { feature: typeof features[0]; index: number }) => {
+
+const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: number;}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -42,8 +42,8 @@ const FeatureItem = ({ feature, index }: { feature: typeof features[0]; index: n
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className="flex flex-col items-center text-center mb-32 last:mb-0"
-    >
+      className="flex flex-col items-center text-center mb-32 last:mb-0">
+
       <span className="text-sm text-muted-foreground font-medium mb-4">Feature {index + 1}</span>
 
       <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
@@ -58,11 +58,11 @@ const FeatureItem = ({ feature, index }: { feature: typeof features[0]; index: n
         <img
           src={feature.image}
           alt={feature.title}
-          className="rounded-lg w-full object-cover border border-border"
-        />
+          className="rounded-lg w-full object-cover border border-border" />
+
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+
 };
 
 const FeaturesSection = () => {
@@ -76,19 +76,19 @@ const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
-        >
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Core Features
-          </h2>
+          className="text-center mb-24">
+
+          
+
+
         </motion.div>
 
-        {features.map((feature, i) => (
-          <FeatureItem key={feature.title} feature={feature} index={i} />
-        ))}
+        {features.map((feature, i) =>
+        <FeatureItem key={feature.title} feature={feature} index={i} />
+        )}
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default FeaturesSection;
