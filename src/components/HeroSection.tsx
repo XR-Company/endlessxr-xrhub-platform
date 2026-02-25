@@ -88,9 +88,9 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8"
         >
-          <h3 className="font-display text-lg font-semibold mb-1">Get Early Access</h3>
+          <h3 className="font-display text-lg font-semibold mb-1">Stay in the loop</h3>
           <p className="text-sm text-muted-foreground mb-4">
-            Sign up for our newsletter and be the first to know.
+            Sign up for new experiences, and updates.
           </p>
           <EarlyAccessForm />
         </motion.div>

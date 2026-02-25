@@ -63,9 +63,9 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="border border-border rounded-lg p-8 md:p-12 max-w-xl mx-auto mb-12"
           >
-            <h3 className="font-display text-2xl font-semibold mb-2">Get Early Access</h3>
+            <h3 className="font-display text-2xl font-semibold mb-2">Stay in the loop</h3>
             <p className="text-muted-foreground mb-6">
-              Sign up for our newsletter and be the first to know.
+              Sign up for new experiences, and updates.
             </p>
 
             {submitted ? (
