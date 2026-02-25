@@ -1,28 +1,35 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { TrendingDown, DollarSign, ShieldAlert } from "lucide-react";
+import problemContentLag from "@/assets/problem-content-lag.jpg";
+import problemHighCosts from "@/assets/problem-high-costs.jpg";
+import problemUserFriction from "@/assets/problem-user-friction.jpg";
 
 const problems = [
   {
     icon: TrendingDown,
     title: "Content Lag",
     description: "XR hardware is growing fast — but immersive content isn't keeping up.",
+    image: problemContentLag,
   },
   {
     icon: DollarSign,
     title: "High Costs",
     description: "Creators struggle with fragmented tools and extreme production costs.",
+    image: problemHighCosts,
   },
   {
     icon: ShieldAlert,
     title: "User Friction",
     description: "Users face major friction in accessing high-quality XR experiences.",
+    image: problemUserFriction,
   },
 ];
 
 const ProblemSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section className="py-32" ref={ref}>
@@ -43,22 +50,57 @@ const ProblemSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {problems.map((problem, i) => (
-            <motion.div
-              key={problem.title}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="border border-border rounded-lg p-8 text-center transition-colors duration-300 hover:border-foreground"
-            >
-              <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
-                <problem.icon className="w-6 h-6 text-muted-foreground" />
+        <div
+          className="grid md:grid-cols-3 gap-6 mb-16"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {problems.map((problem, i) => {
+            const isHovered = hoveredIndex === i;
+            const showImage = hoveredIndex !== null && !isHovered;
+
+            return (
+              <div
+                key={problem.title}
+                className="relative"
+                onMouseEnter={() => setHoveredIndex(i)}
+              >
+                {/* Card - always present, border changes on hover */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                  className={`border rounded-lg p-8 text-center h-full transition-colors duration-300 ${
+                    isHovered ? "border-foreground" : "border-border"
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
+                    <problem.icon className="w-6 h-6 text-muted-foreground" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
+                </motion.div>
+
+                {/* Image overlay - fades in over the card */}
+                <AnimatePresence>
+                  {showImage && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 rounded-lg overflow-hidden"
+                    >
+                      <img
+                        src={problem.image}
+                        alt={problem.title}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         <motion.p
