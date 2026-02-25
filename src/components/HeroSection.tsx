@@ -34,7 +34,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="py-0"
         >
-          <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-8">
+          <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-3">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 6px rgba(52,211,153,0.8), 0 0 16px rgba(52,211,153,0.5), 0 0 30px rgba(52,211,153,0.3)' }} />
             <span className="text-sm text-foreground">Now available on Apple Vision Pro</span>
           </div>
