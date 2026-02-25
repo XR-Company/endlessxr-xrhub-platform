@@ -50,7 +50,7 @@ const ProblemSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="border border-border rounded-lg p-8 text-center"
+              className="border border-border rounded-lg p-8 text-center transition-all duration-300 hover:border-foreground/40 hover:scale-[1.03] hover:shadow-lg hover:shadow-foreground/5"
             >
               <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
                 <problem.icon className="w-6 h-6 text-muted-foreground" />
