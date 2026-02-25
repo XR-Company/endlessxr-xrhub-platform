@@ -2,10 +2,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PlusSquare, PenTool, Globe, Search } from "lucide-react";
 const capabilities = [
-  { icon: PlusSquare, label: "Create", iconColor: "#fb7185", bg: "bg-rose-500/10", border: "border-rose-500/20", hoverGlow: "group-hover:shadow-rose-500/20" },
-  { icon: PenTool, label: "Edit", iconColor: "#34d399", bg: "bg-emerald-500/10", border: "border-emerald-500/20", hoverGlow: "group-hover:shadow-emerald-500/20" },
-  { icon: Globe, label: "Publish", iconColor: "#60a5fa", bg: "bg-blue-500/10", border: "border-blue-500/20", hoverGlow: "group-hover:shadow-blue-500/20" },
-  { icon: Search, label: "Discover", iconColor: "#c084fc", bg: "bg-purple-500/10", border: "border-purple-500/20", hoverGlow: "group-hover:shadow-purple-500/20" },
+  { icon: PlusSquare, label: "Create", iconColor: "#fb7185", bg: "bg-rose-500/10", border: "border-rose-500/20", glowColor: "rgba(251,113,133,0.45)" },
+  { icon: PenTool, label: "Edit", iconColor: "#34d399", bg: "bg-emerald-500/10", border: "border-emerald-500/20", glowColor: "rgba(52,211,153,0.45)" },
+  { icon: Globe, label: "Publish", iconColor: "#60a5fa", bg: "bg-blue-500/10", border: "border-blue-500/20", glowColor: "rgba(96,165,250,0.45)" },
+  { icon: Search, label: "Discover", iconColor: "#c084fc", bg: "bg-purple-500/10", border: "border-purple-500/20", glowColor: "rgba(192,132,252,0.45)" },
 ];
 
 const SolutionSection = () => {
@@ -52,9 +52,12 @@ const SolutionSection = () => {
               className="flex flex-col items-center gap-3 group"
             >
               <div
-                className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl ${cap.bg} ${cap.border} border backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${cap.hoverGlow}`}
+                className={`relative w-12 h-12 md:w-14 md:h-14 rounded-xl ${cap.bg} ${cap.border} border backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:scale-115`}
+                style={{ boxShadow: `0 0 0px ${cap.glowColor}`, transition: 'all 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = `0 0 24px ${cap.glowColor}, 0 0 48px ${cap.glowColor}`}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = `0 0 0px ${cap.glowColor}`}
               >
-                <cap.icon className="w-8 h-8 md:w-10 md:h-10" color={cap.iconColor} strokeWidth={1.5} />
+                <cap.icon className="w-6 h-6 md:w-7 md:h-7" color={cap.iconColor} strokeWidth={1.5} />
               </div>
               <span className="text-xs md:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                 {cap.label}
