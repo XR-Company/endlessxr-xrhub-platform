@@ -39,16 +39,14 @@ const FeatureItem = ({ feature, index }: { feature: typeof features[0]; index: n
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.1 }}
+      transition={{ duration: 0.6 }}
       className="flex flex-col items-center text-center mb-32 last:mb-0"
     >
-      <div className="inline-flex items-center gap-2 glass-card px-4 py-2 mb-6">
-        <span className="text-sm text-accent font-medium">Feature {index + 1}</span>
-      </div>
+      <span className="text-sm text-muted-foreground font-medium mb-4">Feature {index + 1}</span>
 
-      <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+      <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
         {feature.title}
       </h3>
 
@@ -56,12 +54,11 @@ const FeatureItem = ({ feature, index }: { feature: typeof features[0]; index: n
         {feature.description}
       </p>
 
-      <div className="relative w-full max-w-3xl">
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 blur-lg opacity-60" />
+      <div className="w-full max-w-3xl">
         <img
           src={feature.image}
           alt={feature.title}
-          className="relative rounded-2xl w-full object-cover border border-border/50"
+          className="rounded-lg w-full object-cover border border-border"
         />
       </div>
     </motion.div>
@@ -73,16 +70,16 @@ const FeaturesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 relative" ref={ref}>
+    <section className="py-32" ref={ref}>
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold">
-            Core <span className="gradient-text">Features</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            Core Features
           </h2>
         </motion.div>
 

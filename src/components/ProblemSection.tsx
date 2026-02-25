@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TrendingDown, DollarSign, ShieldAlert } from "lucide-react";
 
@@ -26,18 +25,18 @@ const ProblemSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 relative" ref={ref}>
+    <section className="py-32" ref={ref}>
       <div className="section-container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             The XR content gap is
             <br />
-            <span className="gradient-text">holding the industry back.</span>
+            holding the industry back.
           </h2>
         </motion.div>
 
@@ -45,13 +44,13 @@ const ProblemSection = () => {
           {problems.map((problem, i) => (
             <motion.div
               key={problem.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              className="glass-card p-8 text-center group hover:border-primary/30 transition-all duration-500"
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+              className="border border-border rounded-lg p-8 text-center"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:glow-purple transition-shadow duration-500">
-                <problem.icon className="w-7 h-7 text-primary" />
+              <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
+                <problem.icon className="w-6 h-6 text-muted-foreground" />
               </div>
               <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
@@ -62,7 +61,7 @@ const ProblemSection = () => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-xl md:text-2xl text-muted-foreground font-display"
         >
           The result? <span className="text-foreground font-semibold">XR remains niche — not yet mainstream.</span>
