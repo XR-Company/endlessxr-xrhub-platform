@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import appStoreBadge from "@/assets/app-store-badge.png";
+
 import { useState } from "react";
 import heroVideo from "@/assets/hero-video.mp4";
 
@@ -99,8 +99,8 @@ const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
-            <img src={appStoreBadge} alt="App Store" className="h-5" />
-            App Store
+            Download
+            <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
