@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import heroVideo from "@/assets/hero-video.mp4";
+import appLogo from "@/assets/logo.png";
 import SubscribeModal from "@/components/SubscribeModal";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
@@ -38,6 +39,15 @@ const HeroSection = () => {
             <span className="text-sm text-foreground">Now available on Apple Vision Pro</span>
           </div>
         </motion.div>
+
+        <motion.img
+          src={appLogo}
+          alt="Endless XR"
+          className="h-16 md:h-24 lg:h-28 mx-auto mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+        />
 
         <motion.h1
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 tracking-tight"
