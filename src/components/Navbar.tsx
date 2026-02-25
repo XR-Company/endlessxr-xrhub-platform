@@ -1,4 +1,4 @@
-import { Apple } from "lucide-react";
+import appStoreBadge from "@/assets/app-store-badge.png";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
 
@@ -11,10 +11,9 @@ const Navbar = () => {
           href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-foreground text-background text-sm font-medium px-5 py-2 rounded-md inline-flex items-center gap-2 hover:opacity-90 transition-opacity"
+          className="inline-block hover:opacity-90 transition-opacity"
         >
-          <Apple className="w-4 h-4" />
-          Download
+          <img src={appStoreBadge} alt="Download on the App Store" className="h-9" />
         </a>
       </div>
     </nav>

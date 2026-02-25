@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Apple, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import appStoreBadge from "@/assets/app-store-badge.png";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
 
@@ -104,10 +105,9 @@ const CTASection = () => {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-foreground text-background font-medium px-8 py-4 rounded-md inline-flex items-center gap-3 text-lg hover:opacity-90 transition-opacity"
+              className="inline-block hover:opacity-90 transition-opacity"
             >
-              <Apple className="w-6 h-6" />
-              Download on the App Store
+              <img src={appStoreBadge} alt="Download on the App Store" className="h-14" />
             </a>
           </motion.div>
         </motion.div>
