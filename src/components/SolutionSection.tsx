@@ -13,7 +13,7 @@ const SolutionSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32" ref={ref}>
+    <section className="pt-32 pb-0" ref={ref}>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
