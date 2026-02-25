@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
+import SubscribeModal from "@/components/SubscribeModal";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
 
@@ -15,16 +16,7 @@ const benefits = [
 const CTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail("");
-    }
-  };
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="py-32" ref={ref}>
@@ -65,20 +57,10 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            {submitted ? (
-              <div className="flex items-center justify-center gap-2 text-foreground py-3">
-                <Check className="w-5 h-5" />
-                <span className="font-medium">You're on the list!</span>
-              </div>
-            ) : (
-              <button
-                onClick={() => setSubmitted(true)}
-                className={capsuleBtn}
-              >
-                Subscribe
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            )}
+            <button onClick={() => setModalOpen(true)} className={capsuleBtn}>
+              Subscribe
+              <ArrowRight className="w-4 h-4" />
+            </button>
 
             <a
               href={APP_STORE_URL}
@@ -99,6 +81,8 @@ const CTASection = () => {
           </p>
         </div>
       </div>
+
+      <SubscribeModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 };
