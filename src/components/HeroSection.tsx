@@ -1,43 +1,16 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
-
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import heroVideo from "@/assets/hero-video.mp4";
+import SubscribeModal from "@/components/SubscribeModal";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
 
-const EarlyAccessForm = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail("");
-    }
-  };
-
-  if (submitted) {
-    return (
-      <div className="flex items-center justify-center gap-2 text-foreground py-3">
-        <Check className="w-5 h-5" />
-        <span className="font-medium">You're on the list!</span>
-      </div>);
-
-  }
-
-  return (
-    <button
-      onClick={() => setSubmitted(true)}
-      className="border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap">
-      Subscribe
-      <ArrowRight className="w-4 h-4" />
-    </button>
-  );
-};
+const capsuleBtn = "border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap";
 
 const HeroSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background video */}
@@ -48,8 +21,8 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-40" />
-
+          className="w-full h-full object-cover opacity-40"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
       </div>
 
@@ -57,8 +30,9 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }} className="py-0">
-
+          transition={{ duration: 0.6 }}
+          className="py-0"
+        >
           <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse" />
             <span className="text-sm text-foreground">Now available on Apple Vision Pro</span>
@@ -69,8 +43,8 @@ const HeroSection = () => {
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}>
-
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Create, Share, Explore
           <br />
           XR - All in One Place.
@@ -80,8 +54,8 @@ const HeroSection = () => {
           className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:text-base"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}>
-
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           The all-in-one short-form XR platform where you can effortlessly create
           and discover immersive experiences.
         </motion.p>
@@ -90,22 +64,28 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-          <EarlyAccessForm />
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <button onClick={() => setModalOpen(true)} className={capsuleBtn}>
+            Subscribe
+            <ArrowRight className="w-4 h-4" />
+          </button>
 
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap">
+            className={capsuleBtn}
+          >
             Download
             <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
-    </section>);
 
+      <SubscribeModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </section>
+  );
 };
 
 export default HeroSection;
