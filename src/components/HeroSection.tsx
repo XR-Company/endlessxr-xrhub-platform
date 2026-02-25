@@ -67,9 +67,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Create, Share, Explore XR
+          Create, Share, Explore
           <br />
-          All in One Place.
+          XR - All in One Place.
         </motion.h1>
 
         <motion.p
