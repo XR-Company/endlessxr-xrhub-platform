@@ -36,8 +36,8 @@ const ProblemCard = ({
   delay: number;
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
+  initial={{ opacity: 0 }}
+    animate={isInView ? { opacity: 1 } : {}}
     transition={{ duration: 0.5, delay }}
     className="border border-border rounded-lg p-8 text-center h-full"
   >
@@ -51,9 +51,9 @@ const ProblemCard = ({
 
 const ImageTile = ({ src, alt }: { src: string; alt: string }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.95 }}
-    animate={{ opacity: 1, scale: 1 }}
-    exit={{ opacity: 0, scale: 0.95 }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
     transition={{ duration: 0.3 }}
     className="rounded-lg overflow-hidden h-full"
   >
