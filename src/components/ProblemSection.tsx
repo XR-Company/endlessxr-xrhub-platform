@@ -3,7 +3,8 @@ import { useRef, useState } from "react";
 import { TrendingDown, DollarSign, ShieldAlert } from "lucide-react";
 import problemContentLag1 from "@/assets/problem-content-lag-1.png";
 import problemContentLag2 from "@/assets/problem-content-lag-2.png";
-import problemHighCosts from "@/assets/problem-high-costs.jpg";
+import problemHighCosts1 from "@/assets/problem-high-costs-1.png";
+import problemHighCosts2 from "@/assets/problem-high-costs-2.png";
 import problemUserFriction from "@/assets/problem-user-friction.jpg";
 
 const problems = [
@@ -17,7 +18,7 @@ const problems = [
     icon: DollarSign,
     title: "High Costs",
     description: "Creators struggle with fragmented tools and extreme production costs.",
-    images: [problemHighCosts, problemHighCosts],
+    images: [problemHighCosts1, problemHighCosts2],
   },
   {
     icon: ShieldAlert,
