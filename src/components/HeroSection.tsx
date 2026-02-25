@@ -28,24 +28,13 @@ const EarlyAccessForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
-        required
-        className="flex-1 bg-secondary border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 transition-all" />
-
-      <button
-        type="submit"
-        className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
-
-        Subscribe
-        <ArrowRight className="w-4 h-4" />
-      </button>
-    </form>);
-
+    <button
+      onClick={() => setSubmitted(true)}
+      className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
+      Subscribe
+      <ArrowRight className="w-4 h-4" />
+    </button>
+  );
 };
 
 const HeroSection = () => {
@@ -101,27 +90,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8 bg-background/60 backdrop-blur-sm">
+          className="flex flex-col sm:flex-row items-center justify-center gap-4">
 
-          <h3 className="font-display text-lg font-semibold mb-1">Stay in the loop</h3>
-          <p className="text-sm text-muted-foreground mb-4">
-            Sign up for new experiences, and updates.
-          </p>
           <EarlyAccessForm />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}>
 
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block hover:opacity-90 transition-opacity">
-
-            <img src={appStoreBadge} alt="Download on the App Store" className="h-14" />
+            className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
+            <img src={appStoreBadge} alt="App Store" className="h-5" />
+            App Store
           </a>
         </motion.div>
       </div>
