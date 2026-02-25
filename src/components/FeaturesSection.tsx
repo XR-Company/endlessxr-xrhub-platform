@@ -70,7 +70,7 @@ const FeaturesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32" ref={ref}>
+    <section className="pt-8 pb-32" ref={ref}>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
