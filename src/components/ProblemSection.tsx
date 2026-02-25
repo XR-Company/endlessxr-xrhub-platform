@@ -1,7 +1,8 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { TrendingDown, DollarSign, ShieldAlert } from "lucide-react";
-import problemContentLag from "@/assets/problem-content-lag.jpg";
+import problemContentLag1 from "@/assets/problem-content-lag-1.png";
+import problemContentLag2 from "@/assets/problem-content-lag-2.png";
 import problemHighCosts from "@/assets/problem-high-costs.jpg";
 import problemUserFriction from "@/assets/problem-user-friction.jpg";
 
@@ -10,19 +11,19 @@ const problems = [
     icon: TrendingDown,
     title: "Content Lag",
     description: "XR hardware is growing fast — but immersive content isn't keeping up.",
-    image: problemContentLag,
+    images: [problemContentLag1, problemContentLag2],
   },
   {
     icon: DollarSign,
     title: "High Costs",
     description: "Creators struggle with fragmented tools and extreme production costs.",
-    image: problemHighCosts,
+    images: [problemHighCosts, problemHighCosts],
   },
   {
     icon: ShieldAlert,
     title: "User Friction",
     description: "Users face major friction in accessing high-quality XR experiences.",
-    image: problemUserFriction,
+    images: [problemUserFriction, problemUserFriction],
   },
 ];
 
@@ -58,6 +59,13 @@ const ProblemSection = () => {
             const isHovered = hoveredIndex === i;
             const showImage = hoveredIndex !== null && !isHovered;
 
+            // Determine which image to show: from the hovered card's images array
+            const otherIndices = [0, 1, 2].filter(idx => idx !== hoveredIndex);
+            const overlayImageIndex = hoveredIndex !== null ? otherIndices.indexOf(i) : -1;
+            const overlayImage = hoveredIndex !== null && overlayImageIndex >= 0
+              ? problems[hoveredIndex].images[overlayImageIndex]
+              : undefined;
+
             return (
               <div
                 key={problem.title}
@@ -82,7 +90,7 @@ const ProblemSection = () => {
 
                 {/* Image overlay - fades in over the card */}
                 <AnimatePresence>
-                  {showImage && (
+                  {showImage && overlayImage && (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -91,7 +99,7 @@ const ProblemSection = () => {
                       className="absolute inset-0 rounded-lg overflow-hidden"
                     >
                       <img
-                        src={problem.image}
+                        src={overlayImage}
                         alt={problem.title}
                         className="w-full h-full object-cover rounded-lg"
                       />
