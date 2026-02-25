@@ -31,7 +31,7 @@ const SolutionSection = () => {
             the XR content gap.
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-16">
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-8">
             We bring creation, editing, publishing, and discovery into one seamless
             headset-native ecosystem — so immersive content can scale as fast as XR hardware.
           </p>
