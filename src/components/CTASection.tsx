@@ -17,7 +17,7 @@ const CTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [modalOpen, setModalOpen] = useState(false);
-
+  const [btnHovered, setBtnHovered] = useState(false);
   return (
     <section className="py-32" ref={ref}>
       <div className="section-container">
@@ -42,10 +42,10 @@ const CTASection = () => {
                 transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
                 className="flex items-center gap-3"
               >
-                <div className="w-5 h-5 rounded-full border border-border flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3 h-3 text-muted-foreground" />
+                <div className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${btnHovered ? 'border-emerald-400' : 'border-border'}`}>
+                  <Check className={`w-3 h-3 transition-colors duration-300 ${btnHovered ? 'text-emerald-400' : 'text-muted-foreground'}`} style={btnHovered ? { filter: 'drop-shadow(0 0 4px rgba(52,211,153,0.6))' } : {}} />
                 </div>
-                <span className="text-lg text-muted-foreground">{benefit}</span>
+                <span className={`text-lg transition-colors duration-300 ${btnHovered ? 'text-foreground' : 'text-muted-foreground'}`}>{benefit}</span>
               </motion.div>
             ))}
           </div>
@@ -57,7 +57,7 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button onClick={() => setModalOpen(true)} className={capsuleBtn}>
+            <button onClick={() => setModalOpen(true)} onMouseEnter={() => setBtnHovered(true)} onMouseLeave={() => setBtnHovered(false)} className={capsuleBtn}>
               Subscribe
               <ArrowRight className="w-4 h-4" />
             </button>
@@ -66,6 +66,8 @@ const CTASection = () => {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onMouseEnter={() => setBtnHovered(true)}
+              onMouseLeave={() => setBtnHovered(false)}
               className={capsuleBtn}
             >
               Download
