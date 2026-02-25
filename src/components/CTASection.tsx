@@ -1,9 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
-import appStoreBadge from "@/assets/app-store-badge.png";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
+
+const capsuleBtn = "border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap";
 
 const benefits = [
   "Lower the barrier to XR content creation and consumption",
@@ -57,57 +58,36 @@ const CTASection = () => {
             ))}
           </div>
 
-          {/* Email signup */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="border border-border rounded-lg p-8 md:p-12 max-w-xl mx-auto mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <h3 className="font-display text-2xl font-semibold mb-2">Stay in the loop</h3>
-            <p className="text-muted-foreground mb-6">
-              Sign up for new experiences, and updates.
-            </p>
-
             {submitted ? (
               <div className="flex items-center justify-center gap-2 text-foreground py-3">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">You're on the list!</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 bg-secondary border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 transition-all"
-                />
-                <button
-                  type="submit"
-                  className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-                >
-                  Subscribe
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
+              <button
+                onClick={() => setSubmitted(true)}
+                className={capsuleBtn}
+              >
+                Subscribe
+                <ArrowRight className="w-4 h-4" />
+              </button>
             )}
-          </motion.div>
 
-          {/* App Store CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
             <a
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block hover:opacity-90 transition-opacity"
+              className={capsuleBtn}
             >
-              <img src={appStoreBadge} alt="Download on the App Store" className="h-14" />
+              Download
+              <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
         </motion.div>
