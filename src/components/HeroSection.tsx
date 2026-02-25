@@ -23,8 +23,8 @@ const EarlyAccessForm = () => {
       <div className="flex items-center justify-center gap-2 text-foreground py-3">
         <Check className="w-5 h-5" />
         <span className="font-medium">You're on the list!</span>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -35,17 +35,17 @@ const EarlyAccessForm = () => {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email"
         required
-        className="flex-1 bg-secondary border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 transition-all"
-      />
+        className="flex-1 bg-secondary border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 transition-all" />
+
       <button
         type="submit"
-        className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-      >
+        className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+
         Subscribe
         <ArrowRight className="w-4 h-4" />
       </button>
-    </form>
-  );
+    </form>);
+
 };
 
 const HeroSection = () => {
@@ -59,8 +59,8 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-40"
-        />
+          className="w-full h-full object-cover opacity-40" />
+
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
       </div>
 
@@ -68,8 +68,8 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+          transition={{ duration: 0.6 }} className="py-0">
+
           <div className="inline-flex items-center gap-2 border border-border rounded-full px-4 py-1.5 mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse" />
             <span className="text-sm text-muted-foreground">Now available on Apple Vision Pro</span>
@@ -80,19 +80,19 @@ const HeroSection = () => {
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
+          transition={{ duration: 0.6, delay: 0.1 }}>
+
           Create, Share, Explore
           <br />
           XR - All in One Place.
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
+          className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:text-base"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+          transition={{ duration: 0.6, delay: 0.2 }}>
+
           The all-in-one short-form XR platform where you can effortlessly create
           and discover immersive experiences.
         </motion.p>
@@ -101,8 +101,8 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8 bg-background/60 backdrop-blur-sm"
-        >
+          className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8 bg-background/60 backdrop-blur-sm">
+
           <h3 className="font-display text-lg font-semibold mb-1">Stay in the loop</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Sign up for new experiences, and updates.
@@ -113,20 +113,20 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+          transition={{ duration: 0.6, delay: 0.4 }}>
+
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block hover:opacity-90 transition-opacity"
-          >
+            className="inline-block hover:opacity-90 transition-opacity">
+
             <img src={appStoreBadge} alt="Download on the App Store" className="h-14" />
           </a>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
