@@ -30,7 +30,7 @@ const EarlyAccessForm = () => {
   return (
     <button
       onClick={() => setSubmitted(true)}
-      className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
+      className="border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap">
       Subscribe
       <ArrowRight className="w-4 h-4" />
     </button>
@@ -98,7 +98,7 @@ const HeroSection = () => {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-foreground text-background font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity whitespace-nowrap">
+            className="border border-foreground/30 bg-foreground/10 backdrop-blur-md text-foreground font-medium px-7 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap">
             Download
             <ArrowRight className="w-4 h-4" />
           </a>
