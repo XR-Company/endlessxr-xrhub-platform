@@ -14,8 +14,8 @@ const SolutionSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="inline-block border border-border rounded-full px-5 py-1.5 mb-8">
-            <span className="text-sm font-medium text-muted-foreground">Our Solution</span>
+          <div className="inline-block border border-foreground/30 rounded-full px-5 py-1.5 mb-8">
+            <span className="text-sm font-medium text-foreground">Our Solution</span>
           </div>
 
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
