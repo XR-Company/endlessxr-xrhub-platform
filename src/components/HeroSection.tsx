@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Apple, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/endlessxr/id6751106381";
 
@@ -48,8 +49,21 @@ const EarlyAccessForm = () => {
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16">
-      <div className="section-container text-center">
+    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+      {/* Background video */}
+      <div className="absolute inset-0">
+        <video
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+      </div>
+
+      <div className="section-container relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +100,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8"
+          className="border border-border rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8 bg-background/60 backdrop-blur-sm"
         >
           <h3 className="font-display text-lg font-semibold mb-1">Stay in the loop</h3>
           <p className="text-sm text-muted-foreground mb-4">
