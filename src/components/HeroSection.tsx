@@ -61,7 +61,7 @@ const HeroSection = () => {
 
           <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse" />
-            <span className="text-sm text-muted-foreground">Now available on Apple Vision Pro</span>
+            <span className="text-sm text-foreground">Now available on Apple Vision Pro</span>
           </div>
         </motion.div>
 
