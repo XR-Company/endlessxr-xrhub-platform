@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useCallback } from "react";
+import { useRef } from "react";
 import featureContentTypes from "@/assets/feature-content-types.jpg";
 import featureDiscovery from "@/assets/feature-discovery.jpg";
 import featureEditor from "@/assets/feature-editor.jpg";
@@ -38,64 +38,6 @@ const features = [
 }];
 
 
-// Load YouTube IFrame API once
-const loadYTAPI = (() => {
-  let promise: Promise<void> | null = null;
-  return () => {
-    if (!promise) {
-      promise = new Promise<void>((resolve) => {
-        if ((window as any).YT?.Player) { resolve(); return; }
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(tag);
-        (window as any).onYouTubeIframeAPIReady = () => resolve();
-      });
-    }
-    return promise;
-  };
-})();
-
-const YouTubeHoverPlayer = ({ videoId, title }: { videoId: string; title: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any>(null);
-  const iframeId = useRef(`yt-${videoId}-${Math.random().toString(36).slice(2)}`);
-
-  useEffect(() => {
-    loadYTAPI().then(() => {
-      playerRef.current = new (window as any).YT.Player(iframeId.current, {
-        videoId,
-        playerVars: {
-          controls: 0, modestbranding: 1, rel: 0, showinfo: 0,
-          iv_load_policy: 3, disablekb: 1, fs: 0, cc_load_policy: 0,
-          mute: 1, loop: 1, playlist: videoId, playsinline: 1,
-        },
-        events: {
-          onReady: () => {},
-        },
-      });
-    });
-    return () => { playerRef.current?.destroy?.(); };
-  }, [videoId]);
-
-  const handleMouseEnter = useCallback(() => {
-    playerRef.current?.playVideo?.();
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    playerRef.current?.pauseVideo?.();
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative w-full h-full"
-    >
-      <div id={iframeId.current} className="w-full h-full pointer-events-none" />
-    </div>
-  );
-};
 
 const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: number;}) => {
   const ref = useRef(null);
@@ -122,13 +64,13 @@ const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: num
       <div className="w-full max-w-3xl">
         {feature.type === "video" ? (
           <AspectRatio ratio={16 / 9} className="rounded-lg overflow-hidden border border-border bg-muted">
-            {'videoId' in feature && feature.videoId ? (
-              <YouTubeHoverPlayer videoId={feature.videoId} title={feature.title} />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-                Video coming soon
-              </div>
-            )}
+            <iframe
+              src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=1&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
+              className="w-full h-full pointer-events-none"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title={feature.title}
+            />
           </AspectRatio>
         ) : (
           <img
