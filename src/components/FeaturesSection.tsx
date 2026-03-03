@@ -1,9 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import featureContentTypes from "@/assets/feature-content-types.jpg";
-import featureDiscovery from "@/assets/feature-discovery.jpg";
-import featureEditor from "@/assets/feature-editor.jpg";
-import featureAi from "@/assets/feature-ai.jpg";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const features = [
@@ -11,28 +7,27 @@ const features = [
   title: "Various Content Types",
   description:
   "Support for Multi-2D, 360° Immersive, and Hybrid 2D+3D formats. Mix multiple media types into one experience.",
-  image: featureContentTypes,
-  type: "image" as const
+  type: "video" as const,
+  videoId: "wtyVy9KZCFI"
 },
 {
   title: "Instant Discovery",
   description:
   "Short-form XR content feed removes friction. Discover instantly and give feedback to creators in real-time.",
-  image: featureDiscovery,
-  type: "image" as const
+  type: "video" as const,
+  videoId: "JFeKIc7Dl5w"
 },
 {
   title: "Headset-Native Editor",
   description:
   "Build directly in the headset with a unified spatial timeline. No complex desktop workflows required.",
-  image: featureEditor,
-  type: "image" as const
+  type: "video" as const,
+  videoId: "o4WB8vPlhV4"
 },
 {
   title: "AI-Generation Tools",
   description:
   "Generate 3D models and 360° videos from text and images. Professional results with zero modeling expertise.",
-  image: featureAi,
   type: "video" as const,
   videoId: "Vlq47sL1zoc"
 }];
@@ -62,23 +57,15 @@ const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: num
       </p>
 
       <div className="w-full max-w-3xl">
-        {feature.type === "video" ? (
-          <AspectRatio ratio={16 / 9} className="rounded-lg overflow-hidden border border-border bg-muted">
-            <iframe
-              src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=1&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
-              className="w-full h-full pointer-events-none"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title={feature.title}
-            />
-          </AspectRatio>
-        ) : (
-          <img
-            src={feature.image}
-            alt={feature.title}
-            className="rounded-lg w-full object-cover border border-border"
+        <AspectRatio ratio={16 / 9} className="rounded-lg overflow-hidden border border-border bg-muted">
+          <iframe
+            src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=1&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
+            className="w-full h-full pointer-events-none"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title={feature.title}
           />
-        )}
+        </AspectRatio>
       </div>
     </motion.div>);
 
