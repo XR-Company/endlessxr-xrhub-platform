@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import heroVideo from "@/assets/hero-video.mp4";
 import appLogo from "@/assets/logo.png";
 import SubscribeModal from "@/components/SubscribeModal";
 
@@ -16,15 +15,16 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background video */}
       <div className="absolute inset-0">
-        <video
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-40" />
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        <div className="w-full h-full overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/xilqkkNphzE?autoplay=1&mute=1&loop=1&playlist=xilqkkNphzE&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            className="w-full h-full border-0 pointer-events-none opacity-40"
+            style={{ aspectRatio: '16/9', transform: 'scale(1.5)' }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
       </div>
 
       <div className="section-container relative z-10 text-center">
