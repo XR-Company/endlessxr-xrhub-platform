@@ -34,7 +34,7 @@ const features = [
   "Generate 3D models and 360° videos from text and images. Professional results with zero modeling expertise.",
   image: featureAi,
   type: "video" as const,
-  videoUrl: "" // TODO: Add video URL here
+  videoId: "Vlq47sL1zoc"
 }];
 
 
@@ -63,14 +63,13 @@ const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: num
       <div className="w-full max-w-3xl">
         {feature.type === "video" ? (
           <AspectRatio ratio={16 / 9} className="rounded-lg overflow-hidden border border-border bg-muted">
-            {feature.videoUrl ? (
-              <video
-                src={feature.videoUrl}
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
+            {'videoId' in feature && feature.videoId ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=${isInView ? 1 : 0}&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0`}
+                className="w-full h-full"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title={feature.title}
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
