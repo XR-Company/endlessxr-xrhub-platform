@@ -65,8 +65,8 @@ const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: num
           <AspectRatio ratio={16 / 9} className="rounded-lg overflow-hidden border border-border bg-muted">
             {'videoId' in feature && feature.videoId ? (
               <iframe
-                src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=${isInView ? 1 : 0}&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0`}
-                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${feature.videoId}?autoplay=${isInView ? 1 : 0}&mute=1&loop=1&playlist=${feature.videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
+                className="w-full h-full pointer-events-none"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
                 title={feature.title}
