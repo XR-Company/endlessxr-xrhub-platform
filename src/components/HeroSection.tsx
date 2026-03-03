@@ -14,7 +14,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0 md:inset-0 bottom-auto h-[70vh] md:h-full">
+      <div className="absolute inset-0 md:inset-0 bottom-auto h-[80vh] md:h-full">
         <div className="w-full h-full overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/xilqkkNphzE?autoplay=1&mute=1&loop=1&playlist=xilqkkNphzE&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1"
