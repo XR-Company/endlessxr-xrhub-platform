@@ -43,7 +43,7 @@ const HeroSection = () => {
         <motion.img
 
           alt="Endless XR"
-          className="h-20 md:h-[7.5rem] lg:h-[8.75rem] mx-auto mb-1"
+          className="h-14 md:h-[7.5rem] lg:h-[8.75rem] mx-auto mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }} src="/lovable-uploads/1f79a93a-2a71-4450-a0fc-f39d97e3c4c5.png" />
@@ -61,7 +61,7 @@ const HeroSection = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:text-base"
+          className="text-sm text-muted-foreground max-w-2xl mx-auto mb-12 md:text-base"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}>
