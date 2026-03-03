@@ -20,7 +20,7 @@ const HeroSection = () => {
             src="https://www.youtube.com/embed/xilqkkNphzE?autoplay=1&mute=1&loop=1&playlist=xilqkkNphzE&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            className="w-full h-full border-0 pointer-events-none opacity-40"
+            className="w-full h-full border-0 pointer-events-none opacity-50"
             style={{ aspectRatio: '16/9', transform: 'scale(1.5)' }}
           />
         </div>
