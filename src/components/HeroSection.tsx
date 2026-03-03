@@ -25,7 +25,7 @@ const HeroSection = () => {
             title="Hero background"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background" />
       </div>
 
       <div className="section-container relative z-10 text-center">
