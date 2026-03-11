@@ -11,31 +11,41 @@ const SubscribeModal = ({ open, onClose }: SubscribeModalProps) => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
 
-    try {
-      const formData = new URLSearchParams();
-      formData.append("entry.485525031", email);
+    const formUrl =
+      "https://docs.google.com/forms/d/e/1FAIpQLScABH4Ou1VNVqGj9RHuB3z0AhXKi_KmDETSEjOeAINufNHjFQ/formResponse";
 
-      await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLScABH4Ou1VNVqGj9RHuB3z0AhXKi_KmDETSEjOeAINufNHjFQ/formResponse",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: formData.toString(),
-        }
-      );
+    // Create a hidden iframe to submit the form without CORS issues
+    const iframe = document.createElement("iframe");
+    iframe.name = "hidden_iframe";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
 
-      setSubmitted(true);
-      setEmail("");
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitted(true);
-      setEmail("");
-    }
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = formUrl;
+    form.target = "hidden_iframe";
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "entry.485525031";
+    input.value = email;
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    // Cleanup
+    setTimeout(() => {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
+    }, 2000);
+
+    setSubmitted(true);
+    setEmail("");
   };
 
   return (
