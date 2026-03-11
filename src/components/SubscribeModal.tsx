@@ -11,9 +11,28 @@ const SubscribeModal = ({ open, onClose }: SubscribeModalProps) => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append("entry.485525031", email);
+
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLScABH4Ou1VNVqGj9RHuB3z0AhXKi_KmDETSEjOeAINufNHjFQ/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData.toString(),
+        }
+      );
+
+      setSubmitted(true);
+      setEmail("");
+    } catch (error) {
+      console.error("Form submission error:", error);
       setSubmitted(true);
       setEmail("");
     }
