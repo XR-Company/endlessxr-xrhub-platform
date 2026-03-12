@@ -24,7 +24,7 @@ const HeroSection = () => {
             style={{ aspectRatio: '16/9', transform: 'scale(1.5)' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background" />
       </div>
 
       <div className="section-container relative z-10 text-center">
