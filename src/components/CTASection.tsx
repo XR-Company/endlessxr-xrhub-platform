@@ -1,4 +1,5 @@
 import { motion, useInView } from "framer-motion";
+import appIcon from "@/assets/icon.png";
 import { useRef, useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import SubscribeModal from "@/components/SubscribeModal";
