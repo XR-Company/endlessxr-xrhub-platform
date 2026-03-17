@@ -45,7 +45,7 @@ const CTASection = () => {
                 <div className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${btnHovered ? 'border-emerald-400' : 'border-border'}`}>
                   <Check className={`w-3 h-3 transition-colors duration-300 ${btnHovered ? 'text-emerald-400' : 'text-muted-foreground'}`} style={btnHovered ? { filter: 'drop-shadow(0 0 4px rgba(52,211,153,0.6))' } : {}} />
                 </div>
-                <span className="text-primary">{benefit}</span>
+                <span className="text-primary text-xl">{benefit}</span>
               </motion.div>
             )}
           </div>
