@@ -76,12 +76,7 @@ const CTASection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Footer */}
-        <div className="mt-32 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2025 EndlessXR. All rights reserved.
-          </p>
-        </div>
+
       </div>
 
       <SubscribeModal open={modalOpen} onClose={() => setModalOpen(false)} />
