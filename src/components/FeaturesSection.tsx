@@ -84,7 +84,9 @@ const FeaturesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-24">
 
-          
+          <div className="inline-block border border-foreground/30 rounded-full px-5 py-1.5 mb-8">
+            <span className="text-sm font-medium text-foreground">Product Highlights</span>
+          </div>
 
 
         </motion.div>
