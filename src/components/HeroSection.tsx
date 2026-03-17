@@ -27,7 +27,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background" />
       </div>
 
-      <div className="section-container relative z-10 text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
