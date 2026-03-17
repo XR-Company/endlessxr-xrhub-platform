@@ -28,7 +28,7 @@ const CTASection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto">
           
-          <img src={appIcon} alt="Endless XR" className="w-32 h-32 md:w-40 md:h-40 rounded-[2rem] mx-auto mb-10" style={{ boxShadow: '0 0 30px rgba(255,255,255,0.25), 0 0 60px rgba(255,255,255,0.12), 0 0 100px rgba(255,255,255,0.06)' }} />
+          <img src={appIcon} alt="Endless XR" className="w-32 h-32 md:w-40 md:h-40 rounded-[2.5rem] mx-auto mb-10" style={{ boxShadow: '0 0 30px rgba(255,255,255,0.25), 0 0 60px rgba(255,255,255,0.12), 0 0 100px rgba(255,255,255,0.06)' }} />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
             Designed to close the
             <br />
