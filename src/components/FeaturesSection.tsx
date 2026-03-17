@@ -48,7 +48,7 @@ const FeatureItem = ({ feature, index }: {feature: typeof features[0];index: num
 
       <span className="text-sm text-muted-foreground font-medium mb-4">Feature {index + 1}</span>
 
-      <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+      <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-[0.02em]">
         {feature.title}
       </h3>
 
