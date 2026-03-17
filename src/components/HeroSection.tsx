@@ -14,13 +14,13 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0 md:inset-0 bottom-auto h-[75vh] md:h-full">
+      <div className="absolute top-0 left-0 w-full" style={{ height: '100%' }}>
         <div className="relative w-full h-full overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/tiUy_a7fT_E?autoplay=1&mute=1&loop=1&playlist=tiUy_a7fT_E&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto border-0 pointer-events-none"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[177.78vh] h-[100vh] min-w-full border-0 pointer-events-none"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background" />
