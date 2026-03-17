@@ -33,10 +33,25 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="py-0">
           
-          <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-3">
+          <motion.div
+            className="inline-flex items-center gap-2 border border-emerald-400/50 rounded-full px-5 py-2 mb-3"
+            style={{
+              boxShadow: '0 0 15px rgba(52,211,153,0.15), 0 0 30px rgba(52,211,153,0.08), inset 0 0 15px rgba(52,211,153,0.05)',
+              background: 'linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(52,211,153,0.02) 100%)',
+              backdropFilter: 'blur(8px)',
+            }}
+            animate={{
+              boxShadow: [
+                '0 0 15px rgba(52,211,153,0.15), 0 0 30px rgba(52,211,153,0.08), inset 0 0 15px rgba(52,211,153,0.05)',
+                '0 0 20px rgba(52,211,153,0.25), 0 0 40px rgba(52,211,153,0.12), inset 0 0 20px rgba(52,211,153,0.08)',
+                '0 0 15px rgba(52,211,153,0.15), 0 0 30px rgba(52,211,153,0.08), inset 0 0 15px rgba(52,211,153,0.05)',
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          >
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 6px rgba(52,211,153,0.8), 0 0 16px rgba(52,211,153,0.5), 0 0 30px rgba(52,211,153,0.3)' }} />
-            <span className="text-sm text-foreground">Now available on Apple Vision Pro</span>
-          </div>
+            <span className="text-sm font-medium text-emerald-300/90 tracking-wide">Now available on Apple Vision Pro</span>
+          </motion.div>
         </motion.div>
 
         <motion.img
