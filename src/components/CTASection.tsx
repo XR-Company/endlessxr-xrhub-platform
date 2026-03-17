@@ -27,6 +27,7 @@ const CTASection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto">
           
+          <img src={appIcon} alt="Endless XR" className="w-16 h-16 md:w-20 md:h-20 rounded-2xl mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
             Designed to close the
             <br />
