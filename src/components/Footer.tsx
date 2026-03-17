@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.png";
+import onoLogo from "@/assets/ono-logo.png";
 
 const Footer = () => {
   return (
