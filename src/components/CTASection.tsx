@@ -32,7 +32,7 @@ const CTASection = () => {
             <div className="absolute inset-0 rounded-[2.5rem] animate-glow-pulse" style={{ boxShadow: '0 0 40px rgba(255,255,255,0.35), 0 0 80px rgba(255,255,255,0.18), 0 0 120px rgba(255,255,255,0.08)' }} />
             <img src={appIcon} alt="Endless XR" className="relative w-full h-full rounded-[2.5rem]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-[0.02em]">
             Designed to close the
             <br />
             XR market gap.

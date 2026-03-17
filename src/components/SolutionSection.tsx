@@ -25,7 +25,7 @@ const SolutionSection = () => {
             <span className="text-sm font-medium text-foreground">Our Solution</span>
           </div>
 
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-[0.02em]">
             The platform built to close
             <br />
             the XR content gap.

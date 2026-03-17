@@ -36,7 +36,7 @@ const ProblemSection = () => {
           <div className="inline-flex items-center gap-2 border border-foreground/30 rounded-full px-4 py-1.5 mb-6">
             <span className="text-sm text-foreground">Current Problem</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.02em]">
             The XR content gap is
             <br />
             holding the industry back.
