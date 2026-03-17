@@ -55,7 +55,7 @@ const ProblemSection = () => {
               <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center mx-auto mb-6">
                 <problem.icon className="w-6 h-6 text-muted-foreground" />
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3">{problem.title}</h3>
+              <h3 className="font-display text-xl font-semibold mb-3 tracking-[0.02em]">{problem.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-xl">{problem.description}</p>
             </motion.div>
           )}
