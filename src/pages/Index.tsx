@@ -15,6 +15,7 @@ const Index = () => {
       <SolutionSection />
       <FeaturesSection />
       <CTASection />
+      <Footer />
     </div>
   );
 };
