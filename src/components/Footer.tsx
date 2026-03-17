@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Logo */}
           <div>
-            <img src={logo} alt="EndlessXR" className="h-8 brightness-0 invert opacity-80" />
+            <img src={onoLogo} alt="O&O" className="h-10 opacity-90" />
           </div>
 
           {/* Legal */}
