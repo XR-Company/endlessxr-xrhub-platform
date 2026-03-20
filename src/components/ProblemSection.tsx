@@ -6,7 +6,7 @@ const problems = [
 {
   icon: TrendingDown,
   title: "Content Lag",
-  description: "XR hardware is growing fast — but immersive content isn't keeping up."
+  description: "Spatial interfaces are evolving fast - but immersive content isn't keeping up."
 },
 {
   icon: DollarSign,
