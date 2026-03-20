@@ -28,7 +28,7 @@ const HeroSection = () => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/20 to-background" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
