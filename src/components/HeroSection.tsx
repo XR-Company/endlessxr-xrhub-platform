@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="absolute top-0 left-0 w-full" style={{ height: '100%' }}>
         <div className="relative w-full h-full overflow-hidden">
           <iframe
-            src="https://www.youtube.com/embed/tiUy_a7fT_E?autoplay=1&mute=1&loop=1&playlist=tiUy_a7fT_E&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1"
+            src="https://www.youtube.com/embed/tiUy_a7fT_E?autoplay=1&mute=1&loop=1&playlist=tiUy_a7fT_E&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&cc_load_policy=0&start=1"
             allow="autoplay; encrypted-media"
             allowFullScreen
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[177.78vh] h-[100vh] min-w-full border-0 pointer-events-none"
