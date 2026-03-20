@@ -8,7 +8,7 @@ const features = [
   description:
   "Support for Multi-2D, 360° Immersive, and Hybrid 2D+3D formats. Mix multiple media types into one experience.",
   type: "video" as const,
-  videoId: "wtyVy9KZCFI"
+  videoId: "ahJZQq7wmko"
 },
 {
   title: "Instant Discovery",
