@@ -3,7 +3,7 @@ import onoLogo from "@/assets/ono-logo.png";
 const Footer = () => {
   return (
     <footer className="bg-background py-16 border-t border-foreground/20">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Logo */}
           <div>
@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-16 text-right">
-          <span className="text-muted-foreground text-xs">© 2025 by EndlessXR</span>
+          <span className="text-muted-foreground text-xs">© 2025 by O&O Co.</span>
         </div>
       </div>
     </footer>
