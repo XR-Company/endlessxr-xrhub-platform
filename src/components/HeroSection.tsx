@@ -34,7 +34,7 @@ const HeroSection = () => {
           className="py-0">
           
           <div className="inline-flex items-center gap-2.5 rounded-full px-6 py-2.5 mb-3 border border-foreground/30 bg-foreground/10 backdrop-blur-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_6px_2px_rgba(52,211,153,0.6)]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_6px_2px_rgba(52,211,153,0.6)] animate-pulse" />
             <span className="text-base font-medium text-foreground">Now available on Apple Vision Pro</span>
           </div>
         </motion.div>
