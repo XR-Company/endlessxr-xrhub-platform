@@ -29,7 +29,7 @@ const features = [
   description:
   "Generate 3D models and 360° videos from text and images. Professional results with zero modeling expertise.",
   type: "video" as const,
-  videoId: "x0vejZpI1eg"
+  videoId: "EIgGfFWRn80"
 }];
 
 
