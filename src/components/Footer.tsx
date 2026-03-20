@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="text-foreground font-bold text-sm tracking-wider mb-6">CONTACT</h4>
             <a
-              href="mailto:xrgoat777@gmail.com"
+              href="mailto:contact@o-o.company"
               className="text-muted-foreground text-sm underline hover:text-foreground transition-colors duration-200"
             >
-              xrgoat777@gmail.com
+              contact@o-o.company
             </a>
           </div>
         </div>
