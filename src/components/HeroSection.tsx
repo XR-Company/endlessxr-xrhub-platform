@@ -33,8 +33,9 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="py-0">
           
-          <div className="inline-flex items-center rounded-full px-5 py-2 mb-3 bg-foreground">
-            <span className="text-sm font-medium text-background">Now available on Apple Vision Pro</span>
+          <div className="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-3 border border-foreground/30 bg-foreground/10 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-sm font-medium text-foreground">Now available on Apple Vision Pro</span>
           </div>
         </motion.div>
 
