@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-16 text-right">
-          <span className="text-muted-foreground text-xs">© 2025 by EndlessXR</span>
+          <span className="text-muted-foreground text-xs">© 2025 by O&O Co.</span>
         </div>
       </div>
     </footer>
