@@ -15,7 +15,7 @@ const features = [
   description:
   "Short-form XR content feed removes friction. Discover instantly and give feedback to creators in real-time.",
   type: "video" as const,
-  videoId: "JFeKIc7Dl5w"
+  videoId: "miEVTW_O0kM"
 },
 {
   title: "Headset-Native Editor",
