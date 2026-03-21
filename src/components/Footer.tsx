@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-background py-16 border-t border-foreground/20">
       <div className="w-full px-[5%]">
-        <div className="grid grid-cols-1 md:grid-cols-[auto_auto_auto_1fr] gap-12 md:gap-16 items-start">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start justify-between">
           {/* Logo */}
           <div>
             <img src={onoLogo} alt="O&O" className="h-10 opacity-90" />
